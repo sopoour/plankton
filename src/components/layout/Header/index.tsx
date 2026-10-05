@@ -11,7 +11,8 @@ export const HEADER_HEIGHT = 64;
 
 const HeaderWrapper = styled.div`
   display: flex;
-  position: sticky;
+  position: fixed;
+  opacity: 0;
   top: -1px;
   z-index: 5;
   min-height: ${HEADER_HEIGHT}px;
@@ -19,7 +20,6 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  opacity: 1;
   transition: all 300ms ease-in-out;
   transform: none;
   background-color: ${({ theme }) => theme.colors.bg.default};
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
   }, []); */
 
   return (
-    <HeaderWrapper aria-label="Mobile header" id="mobile-header">
+    <HeaderWrapper aria-label="Mobile header" id="header">
       <div>Logo</div>
       <Navigation>
         <div>Item 1</div>

@@ -4,18 +4,17 @@ const theme = {
   media: getMedia,
   colors: {
     bg: {
-      default: '#111647',
+      default: '#000000',
       soft: '#BCC1EB',
     },
     fg: {
-      default: '#FFFFFF',
+      default: '#fff7de',
       contrast: '#000000',
       inactive: 'rgba(255, 255, 255, 0.75)',
     },
     accent: {
-      pink: '#F535AA',
-      orange: '#FF4F09',
-      green: '#30FF7F',
+      lila: '#8C52FF',
+      green: '#1CBB6E',
     },
   },
   filters: {
