@@ -8,6 +8,7 @@ export default async function getGeneralContent(req: NextApiRequest, res: NextAp
             generell(id: "6QKM2PePYEl18k21ItYWKA") {
               subtitle
               about
+              aboutTag
               aboutBild {
                 url
                 width

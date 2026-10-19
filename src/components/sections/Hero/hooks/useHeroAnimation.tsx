@@ -59,11 +59,13 @@ const useHeroAnimation = () => {
             ease: 'power2.out',
           },
           { opacity: 1, y: 0 },
+          0.8,
         )
         .fromTo(
           '#control-buttons',
           { opacity: 0, y: 20, duration: 0.3, ease: 'power2.out' },
           { opacity: 1, y: 0 },
+          1,
         );
 
       timelineSub.to(

@@ -12,7 +12,6 @@ const Root = styled.div`
 `;
 
 const MainLayout = styled.main`
-  max-width: 1000px;
   flex: 1;
   width: 100%;
   margin: 0 auto;
