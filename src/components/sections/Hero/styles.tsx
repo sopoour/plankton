@@ -21,7 +21,7 @@ export const ContentContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
+  z-index: 2;
   text-align: center;
   padding: 0 8px;
   display: flex;
@@ -48,7 +48,7 @@ export const ControlsContainer = styled.div`
   position: absolute;
   bottom: 20%;
   right: 36%;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 0.75rem;

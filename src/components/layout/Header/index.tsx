@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
   position: fixed;
   opacity: 0;
   top: -1px;
-  z-index: 5;
+  z-index: 2;
   min-height: ${HEADER_HEIGHT}px;
   padding: 8px 24px;
   justify-content: space-between;

@@ -50,7 +50,7 @@ const MarkdownSettings = styled.div`
     font-weight: 300;
 
     ${({ theme }) => theme.media('sm')`
-        font-size: 48px;
+        font-size: 56px;
     `}
   }
 `;
