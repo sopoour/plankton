@@ -170,7 +170,7 @@ const About: FC = () => {
           />
         </BackgroundImageWrapper>
         <ContentOverlay ref={textContentRef}>
-          <Subheader>// ABOUT_US</Subheader>
+          <Subheader>&#47;&#47; ABOUT_US</Subheader>
           <Markdown content={data?.about as string} />
           <StatsGrid>
             {data?.aboutTag?.map((tag) => (
