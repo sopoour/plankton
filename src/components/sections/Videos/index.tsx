@@ -1,11 +1,6 @@
-import { fetcher } from '@app/hooks/fetch/useFetch';
 import { Video } from '@app/services/graphql/types';
 import { FC, useRef } from 'react';
 import styled from 'styled-components';
-import useSWR from 'swr';
-import '@videojs/react/video/neutral-skin.css';
-import { VideoPlayer, NeutralVideoSkin } from '@videojs/react/video';
-import { YouTubeVideo } from '@videojs/react/media/youtube-video';
 
 const VideoLayer = styled.div`
   position: absolute;
