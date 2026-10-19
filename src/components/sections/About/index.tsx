@@ -174,7 +174,7 @@ const About: FC = () => {
           <Markdown content={data?.about as string} />
           <StatsGrid>
             {data?.aboutTag?.map((tag) => (
-              <Value>[{tag}]</Value>
+              <Value key={tag}>[{tag}]</Value>
             ))}
           </StatsGrid>
         </ContentOverlay>
