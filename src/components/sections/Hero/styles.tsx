@@ -1,5 +1,5 @@
 import Typography from '@app/components/Typography/Typography';
-import { subheader } from '@app/styles/fonts';
+import { subheader } from '@app/styles/fonts/fonts';
 import styled from 'styled-components';
 import LogoSvg from '@app/assets/logo.svg';
 
@@ -56,6 +56,7 @@ export const ControlsContainer = styled.div`
   backdrop-filter: blur(8px);
   padding: 4px 10px;
   border-radius: 9999px;
+  opacity: 0;
   border: 1px solid rgba(255, 255, 255, 0.1);
   ${({ theme }) => theme.media('sm')`
     right: 46%;

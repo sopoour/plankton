@@ -22,7 +22,7 @@ const HeaderWrapper = styled.div`
   width: 100%;
   transition: all 300ms ease-in-out;
   transform: none;
-  background-color: ${({ theme }) => theme.colors.bg.default};
+  background-color: ${({ theme }) => theme.colors.bg.defaultTrans};
   backdrop-filter: ${({ theme }) => theme.filters.backdrop};
 
   /* ${({ theme }) => theme.media('md')`

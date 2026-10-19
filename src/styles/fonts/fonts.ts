@@ -1,14 +1,14 @@
-import { Allerta_Stencil, Roboto, Space_Grotesk } from 'next/font/google';
+import { Roboto, Space_Grotesk, Wallpoet } from 'next/font/google';
 
-// define your variable fonts
-const header = Allerta_Stencil({
-  weight: ['400'],
-  style: ['normal', ],
+const header = Wallpoet({
+  weight: "400",
+  style: ['normal' ],
   subsets: ['latin'],
-  fallback: ['sans-serif'],
+  fallback: ['sans-seriff'],
   display: 'block',
   preload: true,
 });
+
 const subheader = Space_Grotesk({
   weight: ['400'],
   style: ['normal'],

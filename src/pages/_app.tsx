@@ -5,6 +5,7 @@ import { GlobalStyle } from '@app/styles/global';
 import { ThemeProvider } from 'styled-components';
 import theme from '@app/styles/theme';
 import Head from 'next/head';
+import { MantineProvider } from '@mantine/core';
 
 const App = ({ Component, pageProps }: AppProps) => {
   // TODO: Change description and title
@@ -26,12 +27,14 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta key="og:site_name" property="og:site_name" content="Sophia Auer" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <MantineProvider withGlobalClasses withCssVariables>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </MantineProvider>
     </>
   );
 };
