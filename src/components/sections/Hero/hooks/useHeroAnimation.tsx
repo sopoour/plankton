@@ -87,7 +87,7 @@ const useHeroAnimation = () => {
             scale: 0.45,
             xPercent: isDesktopSm ? 0 : '-29',
             ease: 'power2.out',
-            zIndex: 5,
+            zIndex: 6,
           },
           '-=0.6',
         )

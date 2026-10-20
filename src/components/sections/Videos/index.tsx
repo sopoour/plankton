@@ -6,16 +6,18 @@ import styled from 'styled-components';
 
 const VideoLayer = styled.section`
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   top: 0;
+  padding: 16px 20px;
   max-width: 1200px;
   box-sizing: border-box;
   pointer-events: none; /* Erst klickbar machen wenn eingeflogen */
   ${({ theme }) => theme.media('sm')`
          position: absolute;
          top: 10%;
+          height: 100vh;
     `}
 `;
 
@@ -64,7 +66,7 @@ type Props = {
 
 const Videos: FC<Props> = ({ videos }) => {
   return (
-    <VideoLayer>
+    <VideoLayer id="videos">
       <Content>
         <SectionHeader id="videos-header">&#47;&#47; Live_Sessions</SectionHeader>
         <Grid>
