@@ -3368,6 +3368,74 @@
   resolved "https://registry.yarnpkg.com/@vercel/analytics/-/analytics-2.0.1.tgz#d7d7bd37af7cfbeea95db5f132ae4889f4d26407"
   integrity sha512-MTQG6V9qQrt1tsDeF+2Uoo5aPjqbVPys1xvnIftXSJYG2SrwXRHnqEvVoYID7BTruDz4lCd2Z7rM1BdkUehk2g==
 
+"@videojs/core@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/core/-/core-10.1.0.tgz#b9ae9325391e152eaca81002cd73f09af158febd"
+  integrity sha512-jETPa4qmI5JzKRj0FoMSuh7hNwY4BQMvLVrwjZ8vW3tC00f2TzBsiilSAtg5GPy6DIdupWCd9x0MlPTAzomhiw==
+  dependencies:
+    "@videojs/media" "10.1.0"
+    "@videojs/store" "10.1.0"
+    "@videojs/utils" "10.1.0"
+
+"@videojs/media@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/media/-/media-10.1.0.tgz#2d19c8f9b39103a5fc7598a3a774a87dfb5f2997"
+  integrity sha512-Ene6V7Es+Wddcj/Pzy+7+SbZq5H6M3L3ZdhwWHtoP6AULVt096Pn/PJl4L4W1Vypx9xxRP//ZftVv52eu5clww==
+  dependencies:
+    "@videojs/utils" "10.1.0"
+
+"@videojs/native-hls-video@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/native-hls-video/-/native-hls-video-10.1.0.tgz#314c5b4c0019e2da69b7fdd0cf718bd3e757f4c3"
+  integrity sha512-0Kfngb1iczF/vEPH0nOpcYveb4J6SyPBbWQNXgWBbBDS1ZGFZKpJ8YPo8zvyyHmnZQIatheEeUGCJaRPfVOYwQ==
+  dependencies:
+    "@videojs/media" "10.1.0"
+    "@videojs/spf" "10.1.0"
+    "@videojs/utils" "10.1.0"
+
+"@videojs/react@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/react/-/react-10.1.0.tgz#ba4c39e7d95a1c3c5bce7d3adb03b2a9835abea3"
+  integrity sha512-s49Y8TlPLCgxz6TciIFdCF38liN9TnHVmbup/e/xmsXb79ljGumvtqN5GOrgByDvylin2bvgfXz/T2fxdq0xkQ==
+  dependencies:
+    "@videojs/core" "10.1.0"
+    "@videojs/media" "10.1.0"
+    "@videojs/native-hls-video" "10.1.0"
+    "@videojs/spf" "10.1.0"
+    "@videojs/store" "10.1.0"
+    "@videojs/utils" "10.1.0"
+    react-compiler-runtime "^1.0.0"
+
+"@videojs/spf@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/spf/-/spf-10.1.0.tgz#aa960a57f2e42675fb75a91bd088133f8253f59a"
+  integrity sha512-RLfhkIJ81mAKO8d0/yNfEUVIxASl/WxEih0Kix9S5MKI5GCiJTjVtIGsqN+C8T2a3OZ1+GT5wTTPewnDshGDbw==
+  dependencies:
+    "@videojs/media" "10.1.0"
+    "@videojs/utils" "10.1.0"
+    signal-polyfill "^0.2.2"
+
+"@videojs/store@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/store/-/store-10.1.0.tgz#74cb1d74f5373df87f899029e5c129616d1eb987"
+  integrity sha512-73oWIql+pECjlr4mBPUfgZyvAXJ4wNT1Me4ZgCIzeUUMUqns5OqJSIaRj1jcoWemwROLvKQUVhOVY5JgQ1nDww==
+  dependencies:
+    "@videojs/utils" "10.1.0"
+    react-compiler-runtime "^1.0.0"
+
+"@videojs/utils@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/utils/-/utils-10.1.0.tgz#c089bc161e50c6076c3831f973e440d1b6e41d31"
+  integrity sha512-2Nd5Wzf27ioxEGIJ8u/9jzFSuqNiB1XfCH6fny2XicbCNhsAWnwQrwtyPM6kRvkJbtIHLdQvRwnWpxke20ia0w==
+
+"@videojs/youtube-video@10.1.0":
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/@videojs/youtube-video/-/youtube-video-10.1.0.tgz#33c7f6d78e022862b19e5f2ba66affef32f15396"
+  integrity sha512-r6TVhGahrq5xsNzxyRvs8vPftVa5h12BnaYxoDOAh7XasgMIhOoAth3CFwogwo8djrSZMBHuyeNJ3R6WEor2jQ==
+  dependencies:
+    "@videojs/media" "10.1.0"
+    "@videojs/utils" "10.1.0"
+
 "@whatwg-node/disposablestack@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@whatwg-node/disposablestack/-/disposablestack-0.0.6.tgz#2064a1425ea66194def6df0c7a1851b6939c82bb"
@@ -10946,6 +11014,11 @@ rc@1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-compiler-runtime@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-compiler-runtime/-/react-compiler-runtime-1.0.0.tgz#ee565c2cd3437a41e7fc31d8ab6c662f6b568fc0"
+  integrity sha512-rRfjYv66HlG8896yPUDONgKzG5BxZD1nV9U6rkm+7VCuvQc903C4MjcoZR4zPw53IKSOX9wMQVpA1IAbRtzQ7w==
+
 react-dom@19.1.0:
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.1.0.tgz#133558deca37fa1d682708df8904b25186793623"
@@ -11782,6 +11855,11 @@ signal-exit@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
+
+signal-polyfill@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/signal-polyfill/-/signal-polyfill-0.2.2.tgz#722e2cd272cbd6cdc5fcc741459bd066f93d0264"
+  integrity sha512-p63Y4Er5/eMQ9RHg0M0Y64NlsQKpiu6MDdhBXpyywRuWiPywhJTpKJ1iB5K2hJEbFZ0BnDS7ZkJ+0AfTuL37Rg==
 
 sigstore@^1.0.0:
   version "1.9.0"

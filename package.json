@@ -16,6 +16,8 @@
     "@mantine/next": "^6.0.22",
     "@svgr/webpack": "8.1.0",
     "@vercel/analytics": "^2.0.1",
+    "@videojs/react": "10.1.0",
+    "@videojs/youtube-video": "10.1.0",
     "copy-to-clipboard": "^4.0.2",
     "graphql": "^16.10.0",
     "gsap": "3.12.2",

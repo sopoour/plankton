@@ -1,7 +1,7 @@
 import { SectionHeader } from '@app/components/SectionHeader';
 import { Video } from '@app/services/graphql/types';
 import { flexColumn, flexRow } from '@app/styles/mixins';
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const VideoLayer = styled.section`
@@ -15,7 +15,7 @@ const VideoLayer = styled.section`
   pointer-events: none; /* Erst klickbar machen wenn eingeflogen */
   ${({ theme }) => theme.media('sm')`
          position: absolute;
-         top: 20%;
+         top: 10%;
     `}
 `;
 
@@ -36,6 +36,7 @@ const Grid = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
 
   ${({ theme }) => theme.media('sm')`
       ${flexRow};
@@ -48,6 +49,7 @@ const VideoCard = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 20px ${({ theme }) => theme.colors.bg.accentBlur};
   aspect-ratio: 16 / 9;
+  width: 100%;
 
   iframe {
     width: 100%;
@@ -61,7 +63,6 @@ type Props = {
 };
 
 const Videos: FC<Props> = ({ videos }) => {
-  const videoCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   return (
     <VideoLayer>
       <Content>

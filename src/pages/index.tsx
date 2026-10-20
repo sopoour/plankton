@@ -24,7 +24,7 @@ const OuterWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: auto;
-  z-index: 2;
+  z-index: 6;
 
   ${(props) => props.theme.media('sm')`
     height: 350vh; // give the area room to scroll at least twice of a section
@@ -123,7 +123,7 @@ const Home: NextPage = () => {
               xPercent: 0,
               yPercent: 0,
               rotation: 0,
-              scale: 1,
+              scale: isMiddle ? 1.1 : 0.9,
               opacity: 1,
               duration: 1.5,
               ease: 'power3.out',
