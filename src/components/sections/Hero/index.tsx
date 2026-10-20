@@ -15,8 +15,31 @@ import { FaVolumeMute, FaVolumeUp, FaPause, FaPlay } from 'react-icons/fa';
 import { gsap } from 'gsap';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
-import Section from '@app/components/layout/Section';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import useHeroAnimation from './hooks/useHeroAnimation';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const applyMuteState = (muted: boolean, videoEl: HTMLVideoElement | null) => {
+  if (!videoEl) return;
+
+  videoEl.muted = muted;
+
+  // Video-Helligkeit anpassen
+  gsap.to(videoEl, {
+    filter: muted ? 'brightness(0.5)' : 'brightness(1)',
+    duration: 0.8,
+    ease: 'power2.inOut',
+  });
+
+  // Intro-Text ein-/ausblenden
+  gsap.to('#intro', {
+    opacity: muted ? 1 : 0,
+    pointerEvents: muted ? 'auto' : 'none',
+    duration: 0.8,
+    ease: 'power2.inOut',
+  });
+};
 
 const Hero: FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -38,42 +61,38 @@ const Hero: FC = () => {
 
   const toggleMute = () => {
     if (!videoRef.current) return;
-
-    videoRef.current.muted = !isMuted;
     const nextMuteState = !isMuted;
-    setIsMuted(!isMuted);
-
-    if (videoRef.current) {
-      videoRef.current.muted = nextMuteState;
-      gsap.to(videoRef.current, {
-        filter: nextMuteState ? 'brightness(0.5)' : 'brightness(1)',
-        duration: 0.8,
-        ease: 'power2.inOut',
-      });
-    }
-
-    gsap.to('#intro', {
-      opacity: nextMuteState ? 1 : 0,
-      pointerEvents: nextMuteState ? 'auto' : 'none',
-      duration: 0.8,
-      ease: 'power2.inOut',
-    });
+    setIsMuted(nextMuteState);
+    applyMuteState(nextMuteState, videoRef.current);
   };
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch((err) => {
-        console.warn('Autoplay blockiert oder fehlgeschlagen:', err);
-        setIsPlaying(false);
-      });
-    }
+    // Der Trigger wird IMMER erstellt, egal ob videoRef.current im ersten Frame null ist
+    const trigger = ScrollTrigger.create({
+      trigger: '#hero-section',
+      start: 'top top',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const video = videoRef.current;
+        // Hier prüfen wir dynamisch zum Scroll-Zeitpunkt!
+        if (self.scroll() > 50 && video && !video.muted) {
+          video.muted = true;
+          setIsMuted(true);
+          applyMuteState(true, video);
+        }
+      },
+    });
+
+    ScrollTrigger.refresh();
+
+    return () => trigger.kill();
   }, []);
+
   const isDesktopSm = useMedia(Breakpoints.sm);
   useHeroAnimation();
 
   return (
-    <HeroSection style={{ padding: 0 }}>
+    <HeroSection style={{ padding: 0 }} id="hero">
       <>
         {data?.heroVideo && (
           <BackgroundVideo ref={videoRef} autoPlay loop muted playsInline>
