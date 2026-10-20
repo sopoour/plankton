@@ -2,19 +2,21 @@ import React, { useEffect } from 'react';
 import { css, styled } from 'styled-components';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { flexColumn, flexRow } from '@app/styles/mixins';
+import { desktopOnly, flexColumn, flexRow, mobileOnly } from '@app/styles/mixins';
 import useSidebar from '@app/hooks/useSidebar';
+import Logo from '@app/assets/logo.png';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const HEADER_HEIGHT = 64;
+export const HEADER_HEIGHT = 72;
 
 const HeaderWrapper = styled.div`
   display: flex;
   position: fixed;
   opacity: 0;
   top: -1px;
-  z-index: 2;
+  z-index: 5;
   min-height: ${HEADER_HEIGHT}px;
   padding: 8px 24px;
   justify-content: space-between;
@@ -68,7 +70,7 @@ const BurgerMenu = styled.button`
   padding: 8px;
   width: 35px;
   height: 35px;
-  align-self: flex-end;
+  align-self: center;
   align-items: center;
 
   justify-content: center;
@@ -90,25 +92,23 @@ const Navigation = styled.div`
   `}
 `;
 
+const LogoMobile = styled(Image)`
+  ${mobileOnly};
+  aspect-ratio: 16/9;
+`;
+
 const Header: React.FC = () => {
   const { open, setOpen } = useSidebar((state) => state);
-  /* useEffect(() => {
-    gsap.set('#burger-menu', { opacity: 0 });
-    gsap.to('#burger-menu', {
-      duration: 1,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: '#mobile-header',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1,
-      },
-    });
-  }, []); */
 
   return (
     <HeaderWrapper aria-label="Mobile header" id="header">
-      <div>Logo</div>
+      <LogoMobile
+        src={Logo.src}
+        width={Logo.width / 9}
+        height={Logo.height / 9}
+        sizes="(max-width: 768px) 100vw"
+        alt="Logo Mobile"
+      />
       <Navigation>
         <div>Item 1</div>
         <div>Item 2</div>

@@ -9,6 +9,9 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import MarkdownConfig from '@app/components/MarkdownConfig';
 import Typography from '@app/components/Typography/Typography';
 import { subheader } from '@app/styles/fonts/fonts';
+import { useMedia } from '@app/hooks/useMedia';
+import { Breakpoints } from '@app/styles/media';
+import { SectionHeader } from '@app/components/SectionHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,13 +19,21 @@ const BackgroundImageWrapper = styled.span`
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
   z-index: 1;
+  filter: brightness(0.6) blur(2px);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
+  ${(props) => props.theme.media('sm')`
+    height: 100%;
+    filter: brightness(1) blur();
+    position: absolute;
+  `}
 `;
 
 const ContentOverlay = styled.div`
@@ -30,32 +41,31 @@ const ContentOverlay = styled.div`
   z-index: 3;
   margin: 0 auto;
   max-width: 100%;
-  padding: 32px 20px;
+  padding: 24px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: unset;
-  opacity: 0;
-  visibility: hidden;
+  height: 100%;
+  box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.bg.accentBlur};
+
   ${(props) => props.theme.media('sm')`
     padding: 40px 24px;
     max-width: 850px;
+    height: max-content;
   `}
-`;
-
-const Subheader = styled(Typography)`
-  font-family: ${subheader.style.fontFamily};
-  color: ${({ theme }) => theme.colors.accent.green};
-  font-size: 16px;
-  font-weight: 700;
 `;
 
 const StatsGrid = styled.div`
   display: flex;
-  gap: 2rem;
+  row-gap: 8px;
+  column-gap: 16px;
   margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 const Value = styled.span`
@@ -63,10 +73,12 @@ const Value = styled.span`
   font-size: 0.9rem;
   color: ${({ theme }) => theme.colors.accent.green};
   text-transform: lowercase;
+  font-weight: 700;
   text-shadow:
-    0 0 5px rgba(0, 255, 102, 0.8),
-    0 0 15px rgba(0, 255, 102, 0.5),
-    0 0 30px rgba(0, 255, 102, 0.3);
+    0 0 4px rgba(0, 0, 0, 0.95),
+    0 1px 8px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(10, 30, 15, 0.9),
+    rgba(0, 180, 75, 0.6);
 `;
 
 const Markdown = styled(MarkdownConfig)`
@@ -85,12 +97,21 @@ const Markdown = styled(MarkdownConfig)`
 
 const About: FC = () => {
   const { data, isLoading } = useSWR<Generell | null>('/api/generell', fetcher);
-
+  const isDesktop = useMedia(Breakpoints.sm);
   return (
-    <>
+    <section
+      style={{
+        width: '100vw',
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+    >
       <BackgroundImageWrapper>
         <ContentfulImage
-          src={data?.aboutBild?.url || ''}
+          src={isDesktop ? data?.aboutBild?.url || '' : data?.aboutBildMobile?.url || ''}
           alt="Plankton Performance"
           fill
           sizes="(max-width: 768px) 100vw"
@@ -98,7 +119,7 @@ const About: FC = () => {
         />
       </BackgroundImageWrapper>
       <ContentOverlay id="textContainer">
-        <Subheader>&#47;&#47; ABOUT_US</Subheader>
+        <SectionHeader>&#47;&#47; ABOUT_US</SectionHeader>
         <Markdown content={data?.about as string} />
         <StatsGrid>
           {data?.aboutTag?.map((tag) => (
@@ -106,7 +127,7 @@ const About: FC = () => {
           ))}
         </StatsGrid>
       </ContentOverlay>
-    </>
+    </section>
   );
 };
 

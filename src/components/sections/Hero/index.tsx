@@ -7,6 +7,7 @@ import {
   ContentContainer,
   ControlButton,
   ControlsContainer,
+  HeroSection,
   Logo,
   Subtitle,
 } from './styles';
@@ -72,7 +73,7 @@ const Hero: FC = () => {
   useHeroAnimation();
 
   return (
-    <Section style={{ padding: 0 }}>
+    <HeroSection style={{ padding: 0 }}>
       <>
         {data?.heroVideo && (
           <BackgroundVideo ref={videoRef} autoPlay loop muted playsInline>
@@ -152,7 +153,7 @@ const Hero: FC = () => {
           </ControlButton>
         </ControlsContainer>
       </>
-    </Section>
+    </HeroSection>
   );
 };
 

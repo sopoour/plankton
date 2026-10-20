@@ -1,19 +1,24 @@
+import Section from '@app/components/layout/Section';
 import Typography from '@app/components/Typography/Typography';
 import { subheader } from '@app/styles/fonts/fonts';
 import styled from 'styled-components';
-import LogoSvg from '@app/assets/logo.svg';
 
 export const BackgroundVideo = styled.video`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   object-fit: cover;
   z-index: 0;
+  overflow-x: hidden;
   pointer-events: none;
   filter: brightness(0.5);
   scale: 1.35;
+
+  ${(props) => props.theme.media('sm')`
+    width: 100vw;
+  `}
 `;
 
 export const ContentContainer = styled.div`
@@ -21,7 +26,7 @@ export const ContentContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 5;
   text-align: center;
   padding: 0 8px;
   display: flex;
@@ -96,4 +101,11 @@ export const Logo = styled.svg`
   .logo-letter {
     opacity: 0;
   }
+`;
+
+export const HeroSection = styled(Section)`
+  overflow: hidden;
+  ${({ theme }) => theme.media('sm')`
+    overflow: visible;
+  `}
 `;

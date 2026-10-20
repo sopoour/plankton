@@ -14,7 +14,7 @@ const useHeroAnimation = () => {
     let ctx = gsap.context(() => {
       const timeline = gsap.timeline({
         scrollTrigger: {
-          trigger: '#intro',
+          trigger: 'body',
           start: 0,
           end: () => window.innerHeight * 0.35,
           scrub: 0.6,
@@ -83,9 +83,9 @@ const useHeroAnimation = () => {
           '#logo',
           {
             duration: 3,
-            y: '-42vh',
+            y: '-41.5vh',
             scale: 0.45,
-            xPercent: isDesktopSm ? 0 : '-50',
+            xPercent: isDesktopSm ? 0 : '-29',
             ease: 'power2.out',
             zIndex: 5,
           },
@@ -101,6 +101,10 @@ const useHeroAnimation = () => {
           },
           isDesktopMd ? '-=0.3' : '-=0.1',
         );
+
+      if (!isDesktopSm) {
+        timeline.to('#logo', { autoAlpha: 0, duration: 1 });
+      }
     });
 
     return () => ctx.revert();

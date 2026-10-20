@@ -365,6 +365,7 @@ export type Generell = Entry & _Node & {
   _id: Scalars['ID']['output'];
   about?: Maybe<Scalars['String']['output']>;
   aboutBild?: Maybe<Asset>;
+  aboutBildMobile?: Maybe<Asset>;
   aboutTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   contentfulMetadata: ContentfulMetadata;
   datenschutz?: Maybe<Scalars['String']['output']>;
@@ -387,6 +388,14 @@ export type GenerellAboutArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/generell) */
 export type GenerellAboutBildArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/generell) */
+export type GenerellAboutBildMobileArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -467,6 +476,7 @@ export type GenerellFilter = {
   AND?: InputMaybe<Array<InputMaybe<GenerellFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<GenerellFilter>>>;
   about?: InputMaybe<Scalars['String']['input']>;
+  aboutBildMobile_exists?: InputMaybe<Scalars['Boolean']['input']>;
   aboutBild_exists?: InputMaybe<Scalars['Boolean']['input']>;
   aboutTag_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   aboutTag_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;

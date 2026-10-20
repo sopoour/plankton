@@ -27,10 +27,10 @@ const MarkdownSettings = styled.div`
   }
 
   p {
-    font-size: 24px;
+    font-size: 16px;
 
     ${({ theme }) => theme.media('sm')`
-        font-size: 18px;
+        font-size: 20px;
     `}
   }
 
@@ -46,7 +46,7 @@ const MarkdownSettings = styled.div`
 
   h2 {
     font-family: ${header.style.fontFamily};
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 300;
 
     ${({ theme }) => theme.media('sm')`

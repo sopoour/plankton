@@ -14,6 +14,11 @@ export default async function getGeneralContent(req: NextApiRequest, res: NextAp
                 width
                 height
               }
+              aboutBildMobile {
+                url
+                width
+                height
+              }
               heroVideo {
                 url
                 width
