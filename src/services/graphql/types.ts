@@ -365,6 +365,7 @@ export type Generell = Entry & _Node & {
   _id: Scalars['ID']['output'];
   about?: Maybe<Scalars['String']['output']>;
   aboutBild?: Maybe<Asset>;
+  aboutBildMobile?: Maybe<Asset>;
   aboutTag?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   contentfulMetadata: ContentfulMetadata;
   datenschutz?: Maybe<Scalars['String']['output']>;
@@ -387,6 +388,14 @@ export type GenerellAboutArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/generell) */
 export type GenerellAboutBildArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/generell) */
+export type GenerellAboutBildMobileArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
@@ -467,6 +476,7 @@ export type GenerellFilter = {
   AND?: InputMaybe<Array<InputMaybe<GenerellFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<GenerellFilter>>>;
   about?: InputMaybe<Scalars['String']['input']>;
+  aboutBildMobile_exists?: InputMaybe<Scalars['Boolean']['input']>;
   aboutBild_exists?: InputMaybe<Scalars['Boolean']['input']>;
   aboutTag_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   aboutTag_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -811,113 +821,6 @@ export enum KonzertOrder {
   VenueDesc = 'venue_DESC'
 }
 
-/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/liveSession) */
-export type LiveSession = Entry & _Node & {
-  __typename?: 'LiveSession';
-  _id: Scalars['ID']['output'];
-  contentfulMetadata: ContentfulMetadata;
-  linkedFrom?: Maybe<LiveSessionLinkingCollections>;
-  sys: Sys;
-  titel?: Maybe<Scalars['String']['output']>;
-  videoLink?: Maybe<Scalars['String']['output']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/liveSession) */
-export type LiveSessionLinkedFromArgs = {
-  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/liveSession) */
-export type LiveSessionTitelArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/liveSession) */
-export type LiveSessionVideoLinkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export type LiveSessionCollection = {
-  __typename?: 'LiveSessionCollection';
-  items: Array<Maybe<LiveSession>>;
-  limit: Scalars['Int']['output'];
-  skip: Scalars['Int']['output'];
-  total: Scalars['Int']['output'];
-};
-
-export type LiveSessionCursorCollection = {
-  __typename?: 'LiveSessionCursorCollection';
-  items: Array<Maybe<LiveSession>>;
-  limit: Scalars['Int']['output'];
-  pages: CursorPages;
-};
-
-export type LiveSessionFilter = {
-  AND?: InputMaybe<Array<InputMaybe<LiveSessionFilter>>>;
-  OR?: InputMaybe<Array<InputMaybe<LiveSessionFilter>>>;
-  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
-  sys?: InputMaybe<SysFilter>;
-  titel?: InputMaybe<Scalars['String']['input']>;
-  titel_contains?: InputMaybe<Scalars['String']['input']>;
-  titel_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  titel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  titel_not?: InputMaybe<Scalars['String']['input']>;
-  titel_not_contains?: InputMaybe<Scalars['String']['input']>;
-  titel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  videoLink?: InputMaybe<Scalars['String']['input']>;
-  videoLink_contains?: InputMaybe<Scalars['String']['input']>;
-  videoLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  videoLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  videoLink_not?: InputMaybe<Scalars['String']['input']>;
-  videoLink_not_contains?: InputMaybe<Scalars['String']['input']>;
-  videoLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type LiveSessionLinkingCollections = {
-  __typename?: 'LiveSessionLinkingCollections';
-  entryCollection?: Maybe<EntryCollection>;
-  entryCursorCollection?: Maybe<EntryCursorCollection>;
-};
-
-
-export type LiveSessionLinkingCollectionsEntryCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type LiveSessionLinkingCollectionsEntryCursorCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  pageNext?: InputMaybe<Scalars['String']['input']>;
-  pagePrev?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-export enum LiveSessionOrder {
-  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
-  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
-  SysIdAsc = 'sys_id_ASC',
-  SysIdDesc = 'sys_id_DESC',
-  SysPublishedAtAsc = 'sys_publishedAt_ASC',
-  SysPublishedAtDesc = 'sys_publishedAt_DESC',
-  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
-  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
-  TitelAsc = 'titel_ASC',
-  TitelDesc = 'titel_DESC',
-  VideoLinkAsc = 'videoLink_ASC',
-  VideoLinkDesc = 'videoLink_DESC'
-}
-
 export type Query = {
   __typename?: 'Query';
   _node?: Maybe<_Node>;
@@ -933,12 +836,12 @@ export type Query = {
   konzert?: Maybe<Konzert>;
   konzertCollection?: Maybe<KonzertCollection>;
   konzertCursorCollection?: Maybe<KonzertCursorCollection>;
-  liveSession?: Maybe<LiveSession>;
-  liveSessionCollection?: Maybe<LiveSessionCollection>;
-  liveSessionCursorCollection?: Maybe<LiveSessionCursorCollection>;
   release?: Maybe<Release>;
   releaseCollection?: Maybe<ReleaseCollection>;
   releaseCursorCollection?: Maybe<ReleaseCursorCollection>;
+  video?: Maybe<Video>;
+  videoCollection?: Maybe<VideoCollection>;
+  videoCursorCollection?: Maybe<VideoCursorCollection>;
 };
 
 
@@ -1074,37 +977,6 @@ export type QueryKonzertCursorCollectionArgs = {
 };
 
 
-export type QueryLiveSessionArgs = {
-  id: Scalars['String']['input'];
-  locale?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-export type QueryLiveSessionCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<Array<InputMaybe<LiveSessionOrder>>>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  skip?: InputMaybe<Scalars['Int']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  where?: InputMaybe<LiveSessionFilter>;
-};
-
-
-export type QueryLiveSessionCursorCollectionArgs = {
-  limit?: InputMaybe<Scalars['Int']['input']>;
-  locale?: InputMaybe<Scalars['String']['input']>;
-  order?: InputMaybe<Array<InputMaybe<LiveSessionOrder>>>;
-  pageNext?: InputMaybe<Scalars['String']['input']>;
-  pagePrev?: InputMaybe<Scalars['String']['input']>;
-  preview?: InputMaybe<Scalars['Boolean']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
-  where?: InputMaybe<LiveSessionFilter>;
-};
-
-
 export type QueryReleaseArgs = {
   id: Scalars['String']['input'];
   locale?: InputMaybe<Scalars['String']['input']>;
@@ -1133,6 +1005,37 @@ export type QueryReleaseCursorCollectionArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<ReleaseFilter>;
+};
+
+
+export type QueryVideoArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryVideoCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<VideoOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<VideoFilter>;
+};
+
+
+export type QueryVideoCursorCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<VideoOrder>>>;
+  pageNext?: InputMaybe<Scalars['String']['input']>;
+  pagePrev?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<VideoFilter>;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/release) */
@@ -1299,6 +1202,130 @@ export type TimelineFilterInput = {
   /** Preview content starting from a given timestamp */
   timestamp_lte?: InputMaybe<Scalars['DateTime']['input']>;
 };
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/video) */
+export type Video = Entry & _Node & {
+  __typename?: 'Video';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<VideoLinkingCollections>;
+  lyrics?: Maybe<Scalars['String']['output']>;
+  songTitel?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  videoLink?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/video) */
+export type VideoLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/video) */
+export type VideoLyricsArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/video) */
+export type VideoSongTitelArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/video) */
+export type VideoVideoLinkArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type VideoCollection = {
+  __typename?: 'VideoCollection';
+  items: Array<Maybe<Video>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type VideoCursorCollection = {
+  __typename?: 'VideoCursorCollection';
+  items: Array<Maybe<Video>>;
+  limit: Scalars['Int']['output'];
+  pages: CursorPages;
+};
+
+export type VideoFilter = {
+  AND?: InputMaybe<Array<InputMaybe<VideoFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<VideoFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  lyrics?: InputMaybe<Scalars['String']['input']>;
+  lyrics_contains?: InputMaybe<Scalars['String']['input']>;
+  lyrics_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  lyrics_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  lyrics_not?: InputMaybe<Scalars['String']['input']>;
+  lyrics_not_contains?: InputMaybe<Scalars['String']['input']>;
+  lyrics_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  songTitel?: InputMaybe<Scalars['String']['input']>;
+  songTitel_contains?: InputMaybe<Scalars['String']['input']>;
+  songTitel_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  songTitel_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  songTitel_not?: InputMaybe<Scalars['String']['input']>;
+  songTitel_not_contains?: InputMaybe<Scalars['String']['input']>;
+  songTitel_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  videoLink?: InputMaybe<Scalars['String']['input']>;
+  videoLink_contains?: InputMaybe<Scalars['String']['input']>;
+  videoLink_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  videoLink_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  videoLink_not?: InputMaybe<Scalars['String']['input']>;
+  videoLink_not_contains?: InputMaybe<Scalars['String']['input']>;
+  videoLink_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type VideoLinkingCollections = {
+  __typename?: 'VideoLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+  entryCursorCollection?: Maybe<EntryCursorCollection>;
+};
+
+
+export type VideoLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type VideoLinkingCollectionsEntryCursorCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  pageNext?: InputMaybe<Scalars['String']['input']>;
+  pagePrev?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export enum VideoOrder {
+  LyricsAsc = 'lyrics_ASC',
+  LyricsDesc = 'lyrics_DESC',
+  SongTitelAsc = 'songTitel_ASC',
+  SongTitelDesc = 'songTitel_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  VideoLinkAsc = 'videoLink_ASC',
+  VideoLinkDesc = 'videoLink_DESC'
+}
 
 export type _Node = {
   _id: Scalars['ID']['output'];
