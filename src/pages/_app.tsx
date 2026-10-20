@@ -9,8 +9,8 @@ import { MantineProvider } from '@mantine/core';
 
 const App = ({ Component, pageProps }: AppProps) => {
   // TODO: Change description and title
-  const metaDescription = 'Sophias portfolio description';
-  const metaTitle = 'Sophias website';
+  const metaDescription = 'Queerfeministischer, anti-rassistischer Hip-Hop';
+  const metaTitle = 'PLANKTON';
   return (
     <>
       <Head>
