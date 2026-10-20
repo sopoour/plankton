@@ -8,6 +8,7 @@ import { fetcher } from '@app/hooks/fetch/useFetch';
 import MaxWidthContainer from '@app/components/MaxWidthContainer';
 import { normalizeDate } from '@app/utils/formatDate';
 import ConcertSection from './elements/ConcertSection';
+import { flexColumn } from '@app/styles/mixins';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,9 +17,18 @@ const ConcertsWrapper = styled.section`
   width: 100%;
   z-index: 4; /* Höherer Z-Index als die vorherigen Sektionen */
   background-color: ${({ theme }) => theme.colors.bg.default};
-  padding: 40px 0;
+  padding: 40px 0 64px 0;
   min-height: 100vh;
   box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.9);
+`;
+
+const MaxWidth = styled(MaxWidthContainer)`
+  ${flexColumn};
+  gap: 48px;
+
+  ${({ theme }) => theme.media('sm')`
+        gap: 72px;
+      `}
 `;
 
 const Concerts: FC = () => {
@@ -36,7 +46,7 @@ const Concerts: FC = () => {
 
   return (
     <ConcertsWrapper id="concerts">
-      <MaxWidthContainer>
+      <MaxWidth>
         {upcomingShows && upcomingShows?.length > 0 && (
           <ConcertSection
             title={'Kommende Shows'}
@@ -48,7 +58,7 @@ const Concerts: FC = () => {
         {pastShows && pastShows?.length > 0 && (
           <ConcertSection title={'Vergangene Shows'} concerts={pastShows} pastConcerts />
         )}
-      </MaxWidthContainer>
+      </MaxWidth>
     </ConcertsWrapper>
   );
 };

@@ -13,7 +13,7 @@ const FooterWrapper = styled.footer`
   max-height: 64px;
   padding: 12px 0;
   gap: 32px;
-  background-color: ${({ theme }) => theme.colors.bg.soft};
+  background-color: ${({ theme }) => theme.colors.bg.default};
   z-index: 2;
   color: ${({ theme }) => theme.colors.fg.contrast};
 `;
@@ -85,7 +85,7 @@ const Footer: FC = () => {
             © {currentYear} BRAND.
           </Typography>
           <Typography fontSize="12px" fontSizeSm="14px">
-            Entwickelt von
+            Entwickelt von{' '}
             <Anchor href="https://www.fioauer.com/" target="_blank">
               Fio Auer
             </Anchor>

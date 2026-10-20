@@ -12,10 +12,10 @@ import { SectionHeader } from '@app/components/SectionHeader';
 
 const SectionContainer = styled.div`
   ${flexColumn};
-  gap: 40px;
+  gap: 20px;
 
   ${({ theme }) => theme.media('sm')`
-     gap: 72px;
+     gap: 60px;
 `}
 `;
 
@@ -81,7 +81,7 @@ const ConcertSection: FC<Props> = ({
         <Typography
           as="h3"
           type={header.style.fontFamily}
-          fontSize="34px"
+          fontSize="32px"
           fontSizeSm="48px"
           $textalign="center"
           lineHeight="1"
