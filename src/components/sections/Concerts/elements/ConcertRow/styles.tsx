@@ -35,6 +35,10 @@ export const LeftSide = styled.div`
   grid-template-columns: max-content max-content;
   column-gap: 16px;
   row-gap: 0px;
+
+  ${({ theme }) => theme.media('sm')`
+        row-gap: 4px;
+    `};
 `;
 
 export const Button = styled(Link)`

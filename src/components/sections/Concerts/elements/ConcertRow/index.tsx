@@ -37,10 +37,10 @@ const ConcertRow: FC<Props> = ({ concert }) => {
       </ColumnContainer>
 
       <LeftSide>
-        <Typography fontSize="24px" fontSizeSm="32px" type={header.style.fontFamily}>
+        <Typography fontSize="24px" fontSizeSm="48px" type={header.style.fontFamily} lineHeight="1">
           {concert.datum && ISOToDay(concert.datum)}
         </Typography>
-        <Typography fontSize="14px" fontSizeSm="20px">
+        <Typography fontSize="14px" fontSizeSm="20px" type={subheader.style.fontFamily}>
           {concert.datum && ISOToMonthYear(concert.datum)}
         </Typography>
       </LeftSide>
