@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { css, styled } from 'styled-components';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { desktopOnly, flexColumn, flexRow, mobileOnly } from '@app/styles/mixins';
+import { flexColumn, flexRow, mobileOnly } from '@app/styles/mixins';
 import useSidebar from '@app/hooks/useSidebar';
 import Logo from '@app/assets/logo.png';
 import Image from 'next/image';
@@ -26,11 +26,6 @@ const HeaderWrapper = styled.div`
   transform: none;
   background-color: ${({ theme }) => theme.colors.bg.defaultTrans};
   backdrop-filter: ${({ theme }) => theme.filters.backdrop};
-
-  /* ${({ theme }) => theme.media('md')`
-    transform: translateY(-100%);
-    opacity: 0;
-  `} */
 `;
 
 const Line = styled.span<{ $isActive: boolean }>`
