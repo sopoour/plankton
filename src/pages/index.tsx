@@ -12,22 +12,24 @@ import { fetcher } from '@app/hooks/fetch/useFetch';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
 import { flexColumn, flexRow } from '@app/styles/mixins';
+import Concerts from '@app/components/sections/Concerts';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Root = styled.span`
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 
 const OuterWrapper = styled.div`
   position: relative;
   width: 100vw;
   height: auto;
-  z-index: 6;
+  z-index: 1;
 
   ${(props) => props.theme.media('sm')`
-    height: 350vh; // give the area room to scroll at least twice of a section
+    height: 450vh; // give the area room to scroll at least twice of a section
   `}
 `;
 
@@ -64,13 +66,16 @@ const Home: NextPage = () => {
             trigger: '#outerwrapper',
             start: 'top 10%',
             end: 'bottom bottom', // Nutzt die volle Höhe von OuterWrapper (300vh)
+            endTrigger: '#concerts', // important so that the next section goes over it
             scrub: 1,
             pin: '#pinned-section',
+            pinSpacing: true,
           },
         });
 
         const videoCards = gsap.utils.toArray<HTMLElement>('.video-card');
 
+        // ABOUT
         tl.fromTo(
           '#bgImg',
           { filter: 'brightness(1) blur()' },
@@ -95,6 +100,8 @@ const Home: NextPage = () => {
             },
           )
           .to('#textContainer', { y: -120, autoAlpha: 0, duration: 1, ease: 'power2.out' })
+
+          // VIDEOS
           .to('#bgImg', { filter: 'brightness(0.3) blur(8px)', scale: 0.7, duration: 1 })
           .fromTo(
             '#videos-header',
@@ -133,6 +140,11 @@ const Home: NextPage = () => {
             index === 0 ? '-=1' : '<0.8',
           );
         });
+
+        //PUFFER: Staying with videos for a bit
+        tl.to('#videos', {
+          duration: 1.5,
+        });
       });
 
       return () => ctx.revert();
@@ -148,6 +160,7 @@ const Home: NextPage = () => {
           <Videos videos={data} />
         </Viewport>
       </OuterWrapper>
+      <Concerts />
     </Root>
   );
 };
