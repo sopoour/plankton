@@ -4,11 +4,11 @@ import { flexColumn, flexRow } from '@app/styles/mixins';
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 import ConcertRow from './ConcertRow';
-import { Button } from '@mantine/core';
 import { IoIosArrowDown } from 'react-icons/io';
 import theme from '@app/styles/theme';
 import { header, subheader } from '@app/styles/fonts/fonts';
 import { SectionHeader } from '@app/components/SectionHeader';
+import Button from '@app/components/Button';
 
 const SectionContainer = styled.div`
   ${flexColumn};
@@ -47,11 +47,16 @@ const ButtonContainer = styled.span`
     content: '';
     position: absolute;
     display: block;
-    bottom: 50px;
+    bottom: 45px;
     left: 0;
     width: 100%;
     height: 160px;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #250564 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.8) 60%,
+      #000000 100%
+    );
     transition: opacity 0.3s ease;
   }
 `;
@@ -97,21 +102,11 @@ const ConcertSection: FC<Props> = ({
         {!showAll && concerts && concerts?.length > shownEventsNumber && (
           <ButtonContainer>
             <Button
+              text="Alle anzeigen"
+              isSubmitButton
+              width="max-content"
               onClick={() => setShowAll(true)}
-              variant="default"
-              rightSection={<IoIosArrowDown />}
-              style={{
-                fontSize: '16px',
-                background: theme.colors.bg.soft,
-                color: 'white',
-                fontFamily: subheader.style.fontFamily,
-                border: 'none',
-                borderRadius: 'none',
-                fontWeight: '400px',
-              }}
-            >
-              Alle anzeigen
-            </Button>
+            />
           </ButtonContainer>
         )}
       </ConcertContainer>
