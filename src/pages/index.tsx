@@ -29,7 +29,7 @@ const OuterWrapper = styled.div`
   z-index: 1;
 
   ${(props) => props.theme.media('sm')`
-    height: 450vh; // give the area room to scroll at least twice of a section
+    height: 350vh; // give the area room to scroll at least twice of a section
   `}
 `;
 
@@ -82,7 +82,7 @@ const Home: NextPage = () => {
           {
             scale: 1.1,
             filter: 'brightness(0.6) blur(2px)',
-            duration: 1.2,
+            duration: 1,
             ease: 'none',
           },
         )
