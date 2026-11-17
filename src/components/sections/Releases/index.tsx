@@ -27,7 +27,7 @@ const Releases: FC = () => {
   return (
     <ProjectSection id="releases" $maxWidth={0}>
       <>
-        <SectionHeader>// releases</SectionHeader>
+        <SectionHeader>&#47;&#47; releases</SectionHeader>
         <Carousel className={'animate-scale'} aria-label="carousel">
           <NavButton $side="left" onClick={handlePrev} tabIndex={0}>
             <IoIosArrowBack focusable="false" aria-hidden="true" />
