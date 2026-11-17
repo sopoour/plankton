@@ -17,7 +17,7 @@ const ConcertsWrapper = styled.section`
   width: 100%;
   z-index: 4; /* Höherer Z-Index als die vorherigen Sektionen */
   background-color: ${({ theme }) => theme.colors.bg.default};
-  padding: 40px 0 64px 0;
+  padding: 40px 0 0 0;
   min-height: 100vh;
   box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.9);
 `;

@@ -13,7 +13,7 @@ const ButtonStyle = styled(Link)<{ hoverColor?: string; $width?: string }>`
   align-content: center;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.fg.default};
-  color: ${({ theme }) => theme.colors.accent.lila};
+  color: ${({ theme }) => theme.colors.accent.darkLila};
   font-weight: 700;
   ${fastTransition};
   font-family: ${subheader.style.fontFamily};
