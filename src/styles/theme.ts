@@ -16,6 +16,7 @@ const theme = {
     },
     accent: {
       lila: '#8C52FF',
+      darkLila: '#683ac3',
       green: '#1CBB6E',
     },
   },

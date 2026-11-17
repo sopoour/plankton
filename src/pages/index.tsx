@@ -13,6 +13,7 @@ import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
 import { flexColumn, flexRow } from '@app/styles/mixins';
 import Concerts from '@app/components/sections/Concerts';
+import Releases from '@app/components/sections/Releases';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -161,6 +162,7 @@ const Home: NextPage = () => {
         </Viewport>
       </OuterWrapper>
       <Concerts />
+      <Releases />
     </Root>
   );
 };

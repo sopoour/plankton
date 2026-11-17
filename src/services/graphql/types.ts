@@ -1042,11 +1042,21 @@ export type QueryVideoCursorCollectionArgs = {
 export type Release = Entry & _Node & {
   __typename?: 'Release';
   _id: Scalars['ID']['output'];
+  beschreibung?: Maybe<Scalars['String']['output']>;
   contentfulMetadata: ContentfulMetadata;
   coverBild?: Maybe<Asset>;
+  distributorUrLs?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   linkedFrom?: Maybe<ReleaseLinkingCollections>;
+  releaseDate?: Maybe<Scalars['DateTime']['output']>;
   sys: Sys;
   title?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/release) */
+export type ReleaseBeschreibungArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -1059,8 +1069,22 @@ export type ReleaseCoverBildArgs = {
 
 
 /** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/release) */
+export type ReleaseDistributorUrLsArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/release) */
 export type ReleaseLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/robuchbniafj/content_types/release) */
+export type ReleaseReleaseDateArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -1088,8 +1112,28 @@ export type ReleaseCursorCollection = {
 export type ReleaseFilter = {
   AND?: InputMaybe<Array<InputMaybe<ReleaseFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ReleaseFilter>>>;
+  beschreibung?: InputMaybe<Scalars['String']['input']>;
+  beschreibung_contains?: InputMaybe<Scalars['String']['input']>;
+  beschreibung_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  beschreibung_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  beschreibung_not?: InputMaybe<Scalars['String']['input']>;
+  beschreibung_not_contains?: InputMaybe<Scalars['String']['input']>;
+  beschreibung_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   coverBild_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  distributorUrLs_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  distributorUrLs_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  distributorUrLs_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  distributorUrLs_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  releaseDate?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  releaseDate_gt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_gte?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  releaseDate_lt?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_lte?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_not?: InputMaybe<Scalars['DateTime']['input']>;
+  releaseDate_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   sys?: InputMaybe<SysFilter>;
   title?: InputMaybe<Scalars['String']['input']>;
   title_contains?: InputMaybe<Scalars['String']['input']>;
@@ -1126,6 +1170,8 @@ export type ReleaseLinkingCollectionsEntryCursorCollectionArgs = {
 };
 
 export enum ReleaseOrder {
+  ReleaseDateAsc = 'releaseDate_ASC',
+  ReleaseDateDesc = 'releaseDate_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
