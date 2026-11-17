@@ -6,6 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '@app/styles/theme';
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
+import '@mantine/core/styles.css';
 
 const App = ({ Component, pageProps }: AppProps) => {
   // TODO: Change description and title

@@ -1,4 +1,4 @@
-import { SectionHeader } from '@app/components/SectionHeader';
+import SectionHeader from '@app/components/SectionHeader';
 import { Video } from '@app/services/graphql/types';
 import { flexColumn, flexRow } from '@app/styles/mixins';
 import { FC } from 'react';

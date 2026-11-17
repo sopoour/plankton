@@ -14,6 +14,7 @@ import { Breakpoints } from '@app/styles/media';
 import { flexColumn, flexRow } from '@app/styles/mixins';
 import Concerts from '@app/components/sections/Concerts';
 import Releases from '@app/components/sections/Releases';
+import Contact from '@app/components/sections/Contact';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -163,6 +164,7 @@ const Home: NextPage = () => {
       </OuterWrapper>
       <Concerts />
       <Releases />
+      <Contact />
     </Root>
   );
 };

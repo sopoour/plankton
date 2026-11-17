@@ -1,5 +1,5 @@
 import Section from '@app/components/layout/Section';
-import { SectionHeader } from '@app/components/SectionHeader';
+import { Header as SectionHeader } from '@app/components/SectionHeader';
 import { Breakpoints } from '@app/styles/media';
 import { flexRow, removeScrollBar } from '@app/styles/mixins';
 import { css, styled } from 'styled-components';
@@ -66,6 +66,7 @@ export const ProjectSection = styled(Section)`
   gap: 48px;
   align-items: center;
   padding: 0;
+  justify-content: center;
   @media only screen and (max-width: ${Breakpoints.xs}px) {
     height: 100%;
     padding-bottom: 64px;

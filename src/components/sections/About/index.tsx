@@ -1,17 +1,16 @@
 import { fetcher } from '@app/hooks/fetch/useFetch';
 import ContentfulImage from '@app/lib/contentful-image';
 import { Generell } from '@app/services/graphql/types';
-import { FC, useEffect, useRef } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import MarkdownConfig from '@app/components/MarkdownConfig';
-import Typography from '@app/components/Typography/Typography';
 import { subheader } from '@app/styles/fonts/fonts';
 import { useMedia } from '@app/hooks/useMedia';
 import { Breakpoints } from '@app/styles/media';
-import { SectionHeader } from '@app/components/SectionHeader';
+import SectionHeader from '@app/components/SectionHeader';
 
 gsap.registerPlugin(ScrollTrigger);
 
