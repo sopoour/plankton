@@ -22,6 +22,7 @@ export const DetailsContainer = styled.div`
   border-radius: 10px;
   position: relative;
   z-index: 2;
+  pointer-events: none;
 `;
 
 export const DetailHeader = styled.div`
@@ -107,6 +108,7 @@ const viewedStyle = css`
   ${DetailsContainer} {
     opacity: 1;
     transform: rotateY(180deg);
+    pointer-events: auto;
   }
 
   ${MusicaCardTagline} {

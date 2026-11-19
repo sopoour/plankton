@@ -53,3 +53,10 @@ export const fastTransition = css`
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 `;
+
+export const glowEffect = css`
+  text-shadow:
+    0 0 20px rgba(168, 85, 247, 0.8),
+    /* Naher, intensiver Kern */ 0 0 25px rgba(168, 85, 247, 0.6),
+    /* Mittlerer Radius */ 0 0 50px rgba(139, 92, 246, 0.4); /* Weit reichender Ambient-Glow */
+`

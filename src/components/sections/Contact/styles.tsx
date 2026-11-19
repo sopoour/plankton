@@ -1,12 +1,17 @@
 import LinkContainer from '@app/components/LinkContainer';
-import { fastTransition, flexColumn, flexRow } from '@app/styles/mixins';
-import { Typography } from '@mantine/core';
+import { fastTransition, flexColumn, flexRow, glowEffect } from '@app/styles/mixins';
 import styled from 'styled-components';
+import Typography from '@app/components/Typography/Typography';
 
 export const ContactContainer = styled.div`
   ${flexColumn};
-  gap: 64px;
+  gap: 24px;
   align-items: center;
+
+  ${({ theme }) => theme.media('sm')`
+      ${flexRow};
+      gap: 64px;
+    `}
 `;
 
 export const FormContainer = styled.form`
@@ -21,13 +26,25 @@ export const FormContainer = styled.form`
     margin-bottom: 8px;
     color: ${({ theme }) => theme.colors.fg.default};
   }
+
+  textarea,
+  input {
+    margin-bottom: 16px;
+    background-color: transparent;
+    border: 2px solid ${({ theme }) => theme.colors.accent.green};
+    color: ${({ theme }) => theme.colors.fg.default};
+    border-radius: 0;
+    box-shadow:
+      0 0 4px rgba(168, 85, 247, 0.8),
+      /* Naher, intensiver Kern */ 0 0 8px rgba(168, 85, 247, 0.6),
+      /* Mittlerer Radius */ 0 0 10px rgba(139, 92, 246, 0.4);
+  }
 `;
 
 export const Button = styled.button`
   padding: 4px 18px;
-  border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.accent.lila};
-  color: ${({ theme }) => theme.colors.fg.contrast};
+  color: ${({ theme }) => theme.colors.fg.default};
   font-size: 16px;
   font-weight: 600;
   width: max-content;
@@ -37,7 +54,7 @@ export const Button = styled.button`
   ${fastTransition};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.accent.lila};
+    background-color: ${({ theme }) => theme.colors.accent.darkLila};
     color: ${({ theme }) => theme.colors.fg.default};
   }
 `;
@@ -46,14 +63,8 @@ export const ContactLinkContainer = styled(LinkContainer)`
   align-items: center;
   align-content: center;
   gap: 20px !important;
-  svg {
-    path {
-      fill: ${({ theme }) => theme.colors.fg.default} !important;
-    }
-    &:hover {
-      path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.lila} !important;
-      }
-    }
-  }
+`;
+
+export const ContactSideTitle = styled(Typography)`
+  ${glowEffect}
 `;

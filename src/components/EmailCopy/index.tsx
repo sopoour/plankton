@@ -9,7 +9,7 @@ const CopyEmail = styled(Typography)`
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.accent.lila};
+    color: ${({ theme }) => theme.colors.accent.green};
   }
 `;
 
@@ -31,7 +31,7 @@ const EmailCopy: FC<Props> = ({ email, label }) => {
       label={copied ? 'Kopiert!' : 'E-mail kopieren'}
       withArrow
       position="bottom"
-      color={theme.colors.fg.default}
+      color={theme.colors.accent.lila}
       offset={12}
       transitionProps={{ transition: 'pop', duration: 300 }}
       events={{ hover: true, focus: true, touch: true }}

@@ -5,8 +5,15 @@ import { useForm } from '@mantine/form';
 import { FC, useRef, useState } from 'react';
 import EmailCopy from '../../EmailCopy';
 import Typography from '@app/components/Typography/Typography';
-import { Button, ContactContainer, ContactLinkContainer, FormContainer } from './styles';
+import {
+  Button,
+  ContactContainer,
+  ContactLinkContainer,
+  ContactSideTitle,
+  FormContainer,
+} from './styles';
 import { IconLink } from '@app/types';
+import SectionHeader from '@app/components/SectionHeader';
 
 const links: IconLink[] = [
   { type: 'instagram' },
@@ -56,13 +63,13 @@ const Contact: FC = () => {
     }
   };
   return (
-    <Section id="kontakt">
+    <Section id="kontakt" style={{ alignItems: 'center', gap: '64px' }}>
       <>
+        <SectionHeader>&#47;&#47; kontakt</SectionHeader>
         <ContactContainer>
           <VisuallyHidden component={'h2'}>Kontakt</VisuallyHidden>
           <FormContainer onSubmit={form.onSubmit(handleSubmit)}>
             <TextInput
-              label="Name"
               placeholder="Dein Name"
               {...form.getInputProps('name')}
               withAsterisk
@@ -71,7 +78,6 @@ const Contact: FC = () => {
               key={form.key('name')}
             />
             <TextInput
-              label="E-mail"
               placeholder="name@beispiel.com"
               {...form.getInputProps('email')}
               withAsterisk
@@ -80,7 +86,6 @@ const Contact: FC = () => {
               key={form.key('email')}
             />
             <Textarea
-              label="Nachricht"
               placeholder="Schreibe eine Nachricht..."
               minRows={4}
               autosize
@@ -91,7 +96,7 @@ const Contact: FC = () => {
             />
             <Checkbox
               style={{ maxWidth: '400px' }}
-              color={theme.colors.fg.default}
+              color={theme.colors.fg.contrast}
               label="Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert und verarbeitet werden. Mir ist bekannt, dass ich meine Einwilligung jederzeit widerrufen kann."
               {...form.getInputProps('gdpr', { type: 'checkbox' })}
             />
@@ -110,17 +115,16 @@ const Contact: FC = () => {
               </Typography>
             )}
           </FormContainer>
-          <Flex gap={'32px'} direction={'column'} align={{ base: 'center' }}>
-            <Typography
+          <Flex gap={'28px'} direction={'column'} align={{ base: 'center' }}>
+            <ContactSideTitle
               fontSize="24px"
-              type="montserrat"
-              color={theme.colors.accent.lila}
-              fontWeight={600}
+              type="wallpoet"
+              color={theme.colors.fg.default}
               as={'h3'}
             >
               Oder erreiche uns unter
-            </Typography>
-            <EmailCopy email="kontakt@buchstabensuppe-hoerspiel.de" />
+            </ContactSideTitle>
+            <EmailCopy email="planktontakt@gmail.com" />
             <ContactLinkContainer iconLinks={links} />
           </Flex>
         </ContactContainer>

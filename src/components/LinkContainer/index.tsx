@@ -49,7 +49,7 @@ const Container = styled.span<{ hoverColour?: string; size: Size }>`
       cursor: pointer;
       transform: scale(1.1);
       path {
-        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.fg.inactive};
+        fill: ${({ hoverColour, theme }) => hoverColour ?? theme.colors.accent.green};
       }
     }
 
@@ -60,7 +60,7 @@ const Container = styled.span<{ hoverColour?: string; size: Size }>`
 
         &:hover {
           path {
-            fill: ${({ theme }) => theme.colors.accent.green};
+            fill: ${({ theme }) => theme.colors.accent.green} !important;
             opacity: 1;
           }
         }
@@ -103,13 +103,13 @@ const LinkContainer: FC<Props> = ({
             return {
               id: 'email',
               icon: <FaEnvelope />,
-              link: icon.link,
+              link: icon.link || 'mailto:planktontakt@gmail.com',
             };
           case 'instagram':
             return {
               id: 'instagram',
               icon: <FaInstagram />,
-              link: icon.link,
+              link: icon.link || 'https://www.instagram.com/plankton_wav/',
             };
           case 'appleMusic':
             return {
