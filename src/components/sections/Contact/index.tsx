@@ -9,6 +9,7 @@ import {
   Button,
   ContactContainer,
   ContactLinkContainer,
+  ContactSection,
   ContactSideTitle,
   FormContainer,
 } from './styles';
@@ -63,7 +64,7 @@ const Contact: FC = () => {
     }
   };
   return (
-    <Section id="kontakt" style={{ alignItems: 'center', gap: '64px' }}>
+    <ContactSection id="kontakt">
       <>
         <SectionHeader>&#47;&#47; kontakt</SectionHeader>
         <ContactContainer>
@@ -129,7 +130,7 @@ const Contact: FC = () => {
           </Flex>
         </ContactContainer>
       </>
-    </Section>
+    </ContactSection>
   );
 };
 

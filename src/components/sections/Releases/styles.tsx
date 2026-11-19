@@ -63,7 +63,7 @@ export const Carousel = styled.div`
 `;
 
 export const ProjectSection = styled(Section)`
-  gap: 48px;
+  gap: 36px !important;
   align-items: center;
   padding: 0;
   justify-content: center;

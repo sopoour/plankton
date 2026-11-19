@@ -2,15 +2,15 @@ import LinkContainer from '@app/components/LinkContainer';
 import { fastTransition, flexColumn, flexRow, glowEffect } from '@app/styles/mixins';
 import styled from 'styled-components';
 import Typography from '@app/components/Typography/Typography';
+import Section from '@app/components/layout/Section';
 
 export const ContactContainer = styled.div`
   ${flexColumn};
-  gap: 24px;
+  gap: 64px;
   align-items: center;
 
   ${({ theme }) => theme.media('sm')`
       ${flexRow};
-      gap: 64px;
     `}
 `;
 
@@ -18,7 +18,6 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 32px;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.bg.default};
 
@@ -39,6 +38,11 @@ export const FormContainer = styled.form`
       /* Naher, intensiver Kern */ 0 0 8px rgba(168, 85, 247, 0.6),
       /* Mittlerer Radius */ 0 0 10px rgba(139, 92, 246, 0.4);
   }
+
+  ${({ theme }) => theme.media('sm')`
+      gap: 16px;
+  padding: 32px;
+    `}
 `;
 
 export const Button = styled.button`
@@ -67,4 +71,13 @@ export const ContactLinkContainer = styled(LinkContainer)`
 
 export const ContactSideTitle = styled(Typography)`
   ${glowEffect}
+`;
+
+export const ContactSection = styled(Section)`
+  gap: 32px;
+  align-items: center;
+
+  ${({ theme }) => theme.media('sm')`
+      gap: 40px;
+    `}
 `;

@@ -12,7 +12,6 @@ const MaxWidthContainer = styled.section<{ $maxWidth?: number }>`
   gap: 24px;
   width: 100%;
   min-height: unset;
-  height: 100dvh;
   padding: 32px ${maxContainerPadding.mobile}px;
   max-width: ${({ $maxWidth }) => $maxWidth || 1000}px;
 
