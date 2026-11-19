@@ -34,11 +34,11 @@ const Contact: FC = () => {
     },
 
     validate: {
-      name: (value) => (value.trim().length > 0 ? null : 'Name is required'),
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      name: (value) => (value.trim().length > 0 ? null : 'Name ist erforderlich'),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Ungültige E-mail Adresse'),
       message: (value) =>
-        value.trim().length > 10 ? null : 'Message must be at least 10 characters',
-      gdpr: (value) => (value ? null : 'You must agree to the GDPR terms'),
+        value.trim().length > 10 ? null : 'Die Nachricht muss mindestens 10 Zeichen haben',
+      gdpr: (value) => (value ? null : 'Du musst den DSGV Bedingungen zustimmen'),
     },
   });
 
