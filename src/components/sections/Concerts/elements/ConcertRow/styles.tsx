@@ -1,6 +1,6 @@
 import Typography from '@app/components/Typography/Typography';
 import { subheader } from '@app/styles/fonts/fonts';
-import { flexColumn, flexRow } from '@app/styles/mixins';
+import { flexColumn, flexRow, glowEffect } from '@app/styles/mixins';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -96,8 +96,5 @@ export const TicketNote = styled(Typography)`
 `;
 
 export const CityTitle = styled(Typography)`
-  text-shadow:
-    0 0 20px rgba(168, 85, 247, 0.8),
-    /* Naher, intensiver Kern */ 0 0 25px rgba(168, 85, 247, 0.6),
-    /* Mittlerer Radius */ 0 0 50px rgba(139, 92, 246, 0.4); /* Weit reichender Ambient-Glow */
+  ${glowEffect}
 `;

@@ -4,10 +4,8 @@ import { flexColumn, flexRow } from '@app/styles/mixins';
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 import ConcertRow from './ConcertRow';
-import { IoIosArrowDown } from 'react-icons/io';
-import theme from '@app/styles/theme';
-import { header, subheader } from '@app/styles/fonts/fonts';
-import { SectionHeader } from '@app/components/SectionHeader';
+import { header } from '@app/styles/fonts/fonts';
+import SectionHeader from '@app/components/SectionHeader';
 import Button from '@app/components/Button';
 
 const SectionContainer = styled.div`

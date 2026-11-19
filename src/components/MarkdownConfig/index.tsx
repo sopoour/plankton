@@ -44,7 +44,7 @@ const MarkdownSettings = styled.div`
     `}
   }
 
-  h2 {
+  h3 {
     font-family: ${header.style.fontFamily};
     font-size: 32px;
     font-weight: 300;

@@ -7,7 +7,7 @@ import Button from '@app/components/Button';
 import { Carousel, NavButton, ProjectSection } from './styles';
 import ReleaseCard from './elements/ReleaseCard';
 import { Release } from '@app/services/graphql/types';
-import { SectionHeader } from '@app/components/SectionHeader';
+import SectionHeader from '@app/components/SectionHeader';
 
 const Releases: FC = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
